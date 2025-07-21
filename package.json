@@ -1,0 +1,21 @@
+{
+  "type": "module",
+  "name": "youtube",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "parcel index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Murali Krishna Pogiri",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.15.4"
+  },
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.1.11",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "tailwindcss": "^4.1.11"
+  }
+}
