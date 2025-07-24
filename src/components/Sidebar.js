@@ -1,27 +1,49 @@
-import HomeIcon from '@mui/icons-material/Home';
-import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
-import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import HistoryIcon from '@mui/icons-material/History';
-import ListIcon from '@mui/icons-material/List';
-import WatchLaterOutlinedIcon from '@mui/icons-material/WatchLaterOutlined';
-import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
-import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
-import MusicNoteOutlinedIcon from '@mui/icons-material/MusicNoteOutlined';
-import TheatersIcon from '@mui/icons-material/Theaters';
-import LiveTvIcon from '@mui/icons-material/LiveTv';
-import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
-import NewspaperIcon from '@mui/icons-material/Newspaper';
-import YouTubeIcon from '@mui/icons-material/YouTube';
-import ChildCareIcon from '@mui/icons-material/ChildCare';
-import SettingsIcon from '@mui/icons-material/Settings';
-import FlagOutlinedIcon from '@mui/icons-material/FlagOutlined';
-import ContactSupportOutlinedIcon from '@mui/icons-material/ContactSupportOutlined';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import HomeIcon from '@mui/icons-material/Home';
+
+import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
+
+import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
+
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+
+import HistoryIcon from '@mui/icons-material/History';
+
+import ListIcon from '@mui/icons-material/List';
+
+import WatchLaterOutlinedIcon from '@mui/icons-material/WatchLaterOutlined';
+
+import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
+
+import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
+
+import MusicNoteOutlinedIcon from '@mui/icons-material/MusicNoteOutlined';
+
+import TheatersIcon from '@mui/icons-material/Theaters';
+
+import LiveTvIcon from '@mui/icons-material/LiveTv';
+
+import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
+
+import NewspaperIcon from '@mui/icons-material/Newspaper';
+
+import YouTubeIcon from '@mui/icons-material/YouTube';
+
+import ChildCareIcon from '@mui/icons-material/ChildCare';
+
+import SettingsIcon from '@mui/icons-material/Settings';
+
+import FlagOutlinedIcon from '@mui/icons-material/FlagOutlined';
+
+import ContactSupportOutlinedIcon from '@mui/icons-material/ContactSupportOutlined';
+
 
 const Sidebar = () => {
-    const [isMenuButtonClicked, setIsMenuButtonClicked] = useState(true)
-    if (!isMenuButtonClicked) return (
+    
+    const isMenuItemsOpen = useSelector(store => store.app.isMenuItemsOpen)
+    
+    if (!isMenuItemsOpen) return (
         <div className='p-1'>
             <a className='h-16 flex flex-col justify-center items-center text-xs  rounded-lg hover:bg-[#2b2b2a] cursor-pointer '>
                 <HomeIcon/>
