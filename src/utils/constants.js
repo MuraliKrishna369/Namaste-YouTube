@@ -10,5 +10,7 @@ export const YouTubeLogo =  () => {
     )
 }
 
+export const YouTube_Vidoes_Url = "https://www.googleapis.com/youtube/v3/videos?part=snippet,statistics&chart=mostPopular&regionCode=IN&key="+ process.env.PARCEL_APP_GOOGLE_API_KEY 
+
 
 
