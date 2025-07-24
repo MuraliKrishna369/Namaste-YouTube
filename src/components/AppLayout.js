@@ -1,10 +1,11 @@
 import Header from "./Header"
+import Body from "./Body"
 
 const AppLayout = () => {
     return (
-        <div>
+        <div className="bg-[#212121] text-white">
             <Header/>
-            <h1>Body</h1>
+            <Body/>
         </div>
     )
 }

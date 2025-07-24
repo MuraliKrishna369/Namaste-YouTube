@@ -15,4 +15,20 @@
     5. Setup TailwindCSS 
     6. Structure Our Application
 
+# Planning
+- AppLayout
+    - Header
+        - Hamburger icon, YouTube Logo, Search Bar , Default UserButton
+    - Body
+        - Side Bar
+        - Main Container
+            - Filtered Buttons
+            - Videos
+
+bg color `#212121`
+border color `#acacac`
+youtube logo `https://www.gstatic.com/youtube/img/branding/favicon/favicon_144x144_v2.png`
+
+
+
     
