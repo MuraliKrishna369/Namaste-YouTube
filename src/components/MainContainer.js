@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { YouTube_Vidoes_Url } from "../utils/constants"
 import Video from "./Video"
 
+
 const MainContainer = () => {
     const [videos, setVidoes] = useState(null)
     useEffect(()=> {
@@ -16,8 +17,8 @@ const MainContainer = () => {
     return (
         <div>
             <h1>Button Lists</h1>
-            <div>
-                <Video info={videos[0]}/>
+            <div className="flex flex-wrap">
+                {videos.map((video, index) => <Video key={index} info={video}/>)}  
             </div>
         </div>
     )
