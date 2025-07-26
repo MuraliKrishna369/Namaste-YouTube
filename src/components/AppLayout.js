@@ -29,7 +29,7 @@ const AppLayout = () => {
     return (
        
         <Provider store={appStore}> 
-            <div className="bg-[#212121] text-white">
+            <div className="bg-[#0f0f0f] text-white">
             <Header/>
             <RouterProvider router={appRouter}>  
                 <Body/>

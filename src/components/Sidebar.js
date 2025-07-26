@@ -48,7 +48,7 @@ const Sidebar = () => {
     if (isMenuItemsOpen === null) return null
     
     if (!isMenuItemsOpen) return (
-        <div className='p-1'>
+        <div className='p-1 sticky top-[64px] h-100 bg-[#0f0f0f]'>
             <a className='h-16 flex flex-col justify-center items-center text-xs  rounded-lg hover:bg-[#2b2b2a] cursor-pointer '>
                 <HomeIcon/>
                 <p>Home</p>
@@ -70,7 +70,7 @@ const Sidebar = () => {
         </div>
     )
     return (
-        <div className='w-[225px] border border-red-700 p-2'>
+        <div className='w-[225px] p-2'>
             <a className='hover:bg-gray-700 flex ml-2 p-2 rounded-lg cursor-pointer'>
                 <HomeIcon/>
                 <span className='ml-6'>Home</span>

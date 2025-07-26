@@ -12,7 +12,7 @@ const MainContainer = () => {
     const fetchVideos = async () => {
         const data = await fetch(YouTube_Vidoes_Url)
         const json = await data.json()
-        setVidoes(json.items.splice(0, 2))
+        setVidoes(json.items)
     }
     if (videos === null) return <h1>Loading...</h1>
     return (
