@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import HomeIcon from '@mui/icons-material/Home';
 
@@ -39,9 +39,13 @@ import FlagOutlinedIcon from '@mui/icons-material/FlagOutlined';
 import ContactSupportOutlinedIcon from '@mui/icons-material/ContactSupportOutlined';
 
 
+
 const Sidebar = () => {
-    
+
     const isMenuItemsOpen = useSelector(store => store.app.isMenuItemsOpen)
+   
+
+    if (isMenuItemsOpen === null) return null
     
     if (!isMenuItemsOpen) return (
         <div className='p-1'>

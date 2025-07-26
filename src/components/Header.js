@@ -15,7 +15,7 @@ const Header  = () => {
         <div className='flex justify-between p-3 items-center'>
             <div className='flex items-center ml-[15px]'>
                 <MenuIcon onClick={() => handleToggle()} className='cursor-pointer'/>
-                <YouTubeLogo/>
+                <a href='/'><YouTubeLogo/></a>
             </div>
             <Search/>
             <MicIcon/>
