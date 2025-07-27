@@ -11,11 +11,11 @@ const useDate = (date) => {
     // if it is not more than one year show the no of months but it should 1 month atleast
     // otherwise show the days and if days also > 1 show them hours
 
-    if (diffInYears > 2) return diffInYears + " years"
-    if (diffInMonths > 2) return diffInMonths + " months"
-    if (diffInDays > 2) return diffInDays + " days"
-    if (diffInHours > 2) return diffInHours + " hours"
-    if (diffInMinutes > 2) return diffInMinutes + " minutes"
+    if (diffInYears >= 1) return diffInYears + " years"
+    if (diffInMonths >= 1) return diffInMonths + " months"
+    if (diffInDays >= 1) return diffInDays + " days"
+    if (diffInHours >= 1) return diffInHours + " hours"
+    if (diffInMinutes >= 1) return diffInMinutes + " minutes"
 
     return diffInYears
 }
