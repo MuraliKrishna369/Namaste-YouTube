@@ -19,18 +19,8 @@ const Header  = () => {
     useEffect(()=>{
         // Side effect: Fetch data when the component mounts
 
-
-        // If the url path is not / clear the input value
-
-        
-
-        // If the api call has made < 200ms  decline that api call
-        // If it is > 200ms make that api call because user needs search suggestions immedialtly.
-        
-
         const timer = setTimeout(() =>{
-           
-
+            if (searchQuery === '') return
             if (Object.keys(searchSuggestionsData).includes(searchQuery)){
                 setSearchResult(searchSuggestionsData[searchQuery])
             }else{
@@ -53,34 +43,8 @@ const Header  = () => {
         dispatch(cacheSearchSuuggestions({[searchQuery] : json[1]}))
         setSearchResult(json[1])
     }
-    /**
-     * What I expect
-     * while typing it should show the search suggestions over my page
-     * searchQuery is linked to input value
-     * whenever searchQuery is updated i will re-render my component
-     * but my useEffect will be called and make an api call in debouncing way.
-     * 
-     * i
-     * searchQuery is updated => component re-render
-     * It will destroy the previous component values in useEffect return
-     * useEffect will be called
-     * it make an api call after 200ms and we get the data and we store it state variable 
-     * and Displaying it
-     * ip
-     * searchQuery is updated => component re-render
-     * It will destroy the previous component values in useEffect return
-     * useEffect will be called
-     * it make an api call after 200ms and we get the data and we store it state variable 
-     * and Displaying it
-     * .....
-     */
-    /**
-     * What I expect over here is caching
-     * I will store fetched data(search suggestions) in my redux
-     * when the user types the same input i won't make a new api call 
-     * i just have to show the stored date in my redux
-     * this caching. make performant api calls
-     */
+    
+     
     const handleToggle = () => {
         dispatch(toggleMenuItems())
     }

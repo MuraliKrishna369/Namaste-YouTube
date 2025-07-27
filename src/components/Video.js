@@ -19,7 +19,7 @@ const Video = ({info}) => {
                 </div>
                 <div className="ml-[39px] text-gray-300">
                     <p>{channelTitle}</p>
-                    <p>{totalViewCount} views. {publishedDate} ago</p>
+                    <p>{totalViewCount} views. {publishedDate}</p>
                 </div>
             </div>
         </div>
