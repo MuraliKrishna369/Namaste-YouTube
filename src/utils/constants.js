@@ -1,5 +1,5 @@
 
-
+export const filteredButtons = ["All", "Shorts", "Videos", "Latest", "Watched", "Unwatched", "Live", "Movies", "Music", "Sports", "News", "Programming", "React", "Workout", "Philosophy", "Explore", "Spirituality"]
 
 export const YouTubeLogo =  () => {
     return (

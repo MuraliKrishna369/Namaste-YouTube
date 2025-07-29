@@ -1,8 +1,9 @@
-import AppLayout from "./components/AppLayout"
+import { RouterProvider } from "react-router"
+import { appRouter } from "./components/AppLayout"
 
 function App () {
     return (
-        <AppLayout/>
+        <RouterProvider router={appRouter}/>
     )
 }
 

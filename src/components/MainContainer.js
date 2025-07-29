@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { YouTube_Vidoes_Url } from "../utils/constants"
 import { Link } from "react-router"
 import Video from "./Video"
+import Buttons from "./Buttons"
 
 
 const MainContainer = () => {
@@ -17,7 +18,7 @@ const MainContainer = () => {
     if (videos === null) return <h1>Loading...</h1>
     return (
         <div>
-            <h1>Button Lists</h1>
+            <Buttons/>
             <div className="flex flex-wrap">
                 {videos.map((video) => <Link  to={"/watch?v="+video.id} key={video.id}><Video info={video}/></Link>)}  
             </div>

@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const appSlice = createSlice({
     name: "app",
     initialState: {
-        isMenuItemsOpen: false
+        isMenuItemsOpen: false,
+       
     },
     reducers: {
         toggleMenuItems : (state) => {
@@ -11,7 +12,9 @@ const appSlice = createSlice({
         },
         closeSlidebar: (state) => {
             state.isMenuItemsOpen = null
-        }
+        },
+       
+
     }
 })
 
