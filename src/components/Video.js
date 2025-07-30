@@ -6,7 +6,9 @@ import useViewCount from "../utils/useViewCount"
 const Video = ({info}) => {
     const {title, channelTitle, thumbnails, publishedAt} = info.snippet
     const publishedDate =  useDate(publishedAt)
-    const totalViewCount = useViewCount(info.statistics.viewCount)
+   
+    const totalViewCount = useViewCount(info?.statistics?.viewCount)
+    
     return (
         <div  className="w-[450px]  text-xs m-2 cursor-pointer">          
             <img className="rounded-lg w-full " alt="video-thumnail" src={thumbnails.medium.url}/>            
@@ -19,7 +21,7 @@ const Video = ({info}) => {
                 </div>
                 <div className="ml-[39px] text-gray-300">
                     <p>{channelTitle}</p>
-                    <p>{totalViewCount} views. {publishedDate}</p>
+                    <p>{totalViewCount}  {publishedDate}</p>
                 </div>
             </div>
         </div>

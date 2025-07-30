@@ -1,5 +1,4 @@
 import { Outlet } from "react-router"
-import MainContainer from "./MainContainer"
 import Sidebar from "./Sidebar"
 
 const Body = () => {

@@ -10,7 +10,8 @@
   "author": "Murali Krishna Pogiri",
   "license": "ISC",
   "devDependencies": {
-    "parcel": "^2.15.4"
+    "parcel": "^2.15.4",
+    "process": "^0.11.10"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",

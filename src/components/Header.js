@@ -7,7 +7,7 @@ import { YouTube_Search_Suggestion_Url, YouTubeLogo } from '../utils/constants';
 import User from './User';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleMenuItems } from '../utils/appSlice';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { cacheSearchSuuggestions } from '../utils/searchSlice';
 
 
@@ -18,6 +18,7 @@ const Header  = () => {
     const [searchSuggestions, setSearchSuggestions] = useState(false)
     const dispatch = useDispatch()
     const searchSuggestionsData = useSelector(store => store.search) // from redux
+    const onBlurTimer = useRef(null)
    
     useEffect(()=>{
         // Side effect: Fetch data when the component mounts
@@ -35,11 +36,12 @@ const Header  = () => {
         // Optional cleanup function (runs when component unmounts or before next effect)
         return () => {
             clearTimeout(timer)
+            clearTimeout(onBlurTimer)
         }
         
     }, [searchQuery])
     const getSearchSuggestions = async () => {
-        const data = await fetch(YouTube_Search_Suggestion_Url+searchQuery)
+        const data = await fetch("http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q="+searchQuery)
         const json = await data.json()
         // Store the data into redux
         // action.payload and sent that into method
@@ -51,18 +53,23 @@ const Header  = () => {
     const handleToggle = () => {
         dispatch(toggleMenuItems())
     }
+    const handleInputOnBlur = () => {
+        onBlurTimer.current = setTimeout(() => {
+            setSearchSuggestions(false)
+        }, 500)
+    }
 
     
     return (
         <div className='bg-[#0f0f0f] flex justify-between h-16 p-3 items-center sticky z-1 top-0'>
             <div className='flex items-center ml-[15px]'>
                 <MenuIcon onClick={() => handleToggle()} className='cursor-pointer'/>
-                <a href='/'><YouTubeLogo/></a>
+                <Link to='/'><YouTubeLogo/></Link>
             </div>
             <div className='flex flex-col'>
                 <div className="h-10 border w-[450px] flex justify-between items-center rounded-full">
                     <input id="search" onFocus={() => setSearchSuggestions(true)}
-                     onBlur={() => setSearchSuggestions(false)}
+                     onBlur={() => handleInputOnBlur()}
                      onChange={(e) => setSearchQuery(e.target.value)} value={searchQuery}  className="w-[400px] p-2 border-r rounded-l-full" type='search'/>
                     <button className='w-24 p-2 opacity-50 cursor-pointer'>
                         <SearchOutlinedIcon />
@@ -71,14 +78,7 @@ const Header  = () => {
            
                 {searchQuery !== "" && searchSuggestions?
                     <div className='bg-[#212121] w-[450px] p-2 list-none rounded-lg absolute z-1 top-15 '>
-                        {searchResult.map(
-                            function (result){
-                                console.log("/results?search_query="+result.split(" ").join("+"))
-                                return (
-                                    <Link to={"/results?search_query="+result.split(" ").join("+")}  key={uuidv4()}><li  className='hover:bg-[#2b2b2b] p-1 rounded-lg'><SearchOutlinedIcon /><span className='ml-3'>{result}</span></li></Link>
-                                )
-                            }
-                        )}
+                        {searchResult.map(result => <Link key={uuidv4()} to={"/results?search_query="+result.split(" ").join("+")}  ><li  className='hover:bg-[#2b2b2b] p-1 rounded-lg'><SearchOutlinedIcon /><span className='ml-3'>{result}</span></li></Link>)}
                     </div>
                     : null
                 }

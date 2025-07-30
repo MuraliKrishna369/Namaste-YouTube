@@ -3,9 +3,10 @@ import Body from "./Body"
 import { Provider } from "react-redux"
 import appStore from "../utils/appStore"
 import { createBrowserRouter, Outlet } from "react-router"
-import MainContainer from "./MainContainer"
 import WatchPage from "./WatchPage"
-import ResultSearchPage from "./ResultSearchPage"
+import Home from "./Home"
+import ResultPage from "./ResultPage"
+
 
 
 
@@ -34,16 +35,17 @@ export const appRouter = createBrowserRouter([
                 children: [
                     {
                         path: "/",
-                        element: <MainContainer/>
+                        element: <Home/>
+                    },
+                    {
+                        path: "/results",
+                        element: <ResultPage/>
                     },
                     {
                         path: "/watch",
                         element: <WatchPage/>
                     },
-                    {
-                        path: "/results",
-                        element: <ResultSearchPage/>
-                    }
+                    
                         
                 ]
             }
