@@ -1,6 +1,6 @@
 import Header from "./Header"
 import Body from "./Body"
-import { Provider } from "react-redux"
+import { Provider, useSelector } from "react-redux"
 import appStore from "../utils/appStore"
 import { createBrowserRouter, Outlet } from "react-router"
 import WatchPage from "./WatchPage"
@@ -15,7 +15,7 @@ import ResultPage from "./ResultPage"
 const AppLayout = () => {
     return (
         <Provider store={appStore}> 
-            <div className="bg-[#0f0f0f] text-white">
+            <div className="bg-[#0f0f0f] text-white relative">
                 <Header/>
                 <Outlet/>
             </div>   
