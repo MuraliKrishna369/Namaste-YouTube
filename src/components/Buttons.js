@@ -25,7 +25,7 @@ const Buttons = () => {
             {filteredButtons.length > displayedButtons.length &&
                 <button onClick={() => handlePreviousButton()}  className="fixed bg-[#0f0f0f] p-1 rounded-full cursor-pointer hover:border-2 hover:border-gray-100"><KeyboardArrowLeftOutlinedIcon/></button>   
             }    
-            <div className='ml-3 flex items-center'>
+            <div className=' flex justify-between items-center w-full'>
                 {displayedButtons.slice(0,10).map(button => <Link to={"/results?search_query="+button.toLocaleLowerCase().split(" ").join("+")} key={button}><button  className="text-sm font-medium mx-3 px-3 cursor-pointer py-2 rounded-lg hover:bg-white hover:text-black bg-[#212121]">{button}</button></Link>)}
             </div>
             {displayedButtons.length > 9 && 

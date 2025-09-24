@@ -3,9 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useRef, useState } from 'react';
 import { cacheSearchSuuggestions } from '../utils/searchSlice';
 import { Link, useNavigate } from 'react-router';
-import User from './User';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
-import MicIcon from '@mui/icons-material/Mic';
 import MenuAndLogo from './MenuAndLogo';
 
 
@@ -53,30 +51,28 @@ const Header  = () => {
 
     
     return (
-        <div className='bg-[#0f0f0f] flex justify-between h-16 p-3 items-center sticky z-1 top-0'>
-            <MenuAndLogo/>
-            <div className='flex flex-col'>
-                <div className="h-10 border w-[450px] flex justify-between items-center rounded-full">
+        <div className='flex flex-col items-center  w-full'>
+            <div className='w-full bg-[#0f0f0f] grid grid-cols-3 justify-between h-16 p-3 items-center sticky z-1 top-0'>
+                <MenuAndLogo/>
+                <div className='flex items-center'>
                     <input id="search" 
-                     onFocus={() => setShowSearchBar(true)}
-                     onBlur={() => handleInputOnBlur()}
-                     onChange={(e) => setSearchQuery(e.target.value)} value={searchQuery}  className="w-[400px] p-2 border-r rounded-l-full" type='search'/>
-                    
-                    <button onClick={() => handleSearchButtonClicked(searchQuery)}  className='w-24 p-2 opacity-50 cursor-pointer'>
+                        onFocus={() => setShowSearchBar(true)}
+                        onBlur={() => handleInputOnBlur()}
+                        onChange={(e) => setSearchQuery(e.target.value)} value={searchQuery}  className="w-32 sm:w-82 sm:h-7 h-5 p-2 border rounded-l-full" type='search'/>          
+                    <button onClick={() => handleSearchButtonClicked(searchQuery)}  className='p-2 opacity-50 cursor-pointer'>
                         <SearchOutlinedIcon />
-                    </button>
-                   
+                    </button>               
                 </div>
-                {showSearchBar &&
-                    <div className='bg-[#212121] w-[450px] p-2 list-none rounded-lg absolute z-1 top-15 '>
-                        {searchResult.map(result => <Link key={uuidv4()} to={"/results?search_query="+result.split(" ").join("+")}  ><li  className='hover:bg-[#2b2b2b] p-1 rounded-lg'><SearchOutlinedIcon /><span className='ml-3'>{result}</span></li></Link>)}
-                    </div>
-                }
+                    
 
             </div>
-            <MicIcon/>
-            <User/>
+            {showSearchBar === true && searchResult.length > 1 &&
+            <div className='bg-[#212121] w-[250px] sm:w-[290px] p-2 list-none rounded-lg absolute z-1 top-15'>
+                {searchResult.map(result => <Link key={uuidv4()} to={"/results?search_query="+result.split(" ").join("+")}  ><li  className='hover:bg-[#2b2b2b] p-1 rounded-lg'><SearchOutlinedIcon /><span className='ml-3'>{result}</span></li></Link>)}
+            </div>
+            }
         </div>
+            
     )
 }
 export default Header

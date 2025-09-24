@@ -6,10 +6,9 @@ import Buttons from "./Buttons"
 
 const VideoContainer = ({videos}) => {
     return (
-        <div className="flex flex-col w-full">
+        <div className="w-full flex flex-col p-2">
             <Buttons/>
-            <div className="flex flex-wrap">
-    
+            <div className="flex flex-wrap mt-2">
                 {videos?.map((video) => <Link key={typeof video.id === "string"? video.id : video.id.videoId}  to={`/watch?v=${typeof video.id === "string"? video.id : video.id.videoId}`} ><Video info={video}/></Link>)}  
             </div>
         </div>
