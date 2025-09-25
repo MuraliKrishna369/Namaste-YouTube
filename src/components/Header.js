@@ -58,7 +58,7 @@ const Header  = () => {
                     <input id="search" 
                         onFocus={() => setShowSearchBar(true)}
                         onBlur={() => handleInputOnBlur()}
-                        onChange={(e) => setSearchQuery(e.target.value)} value={searchQuery}  className="w-32 sm:w-82 sm:h-7 h-5 p-2 border rounded-l-full" type='search'/>          
+                        onChange={(e) => setSearchQuery(e.target.value)} value={searchQuery}  className="w-42 sm:w-82 sm:h-7 h-5 p-2 border rounded-l-full" type='search'/>          
                     <button onClick={() => handleSearchButtonClicked(searchQuery)}  className='p-2 opacity-50 cursor-pointer'>
                         <SearchOutlinedIcon />
                     </button>               

@@ -21,7 +21,7 @@ import ContactSupportOutlinedIcon from '@mui/icons-material/ContactSupportOutlin
 
 const NonDefaultSidebar = () =>  {
     return (
-        <div className="bg-[#0f0f0f]">
+        <div className="bg-[#0f0f0f] absolute z-1">
             <div className='w-[200px] p-2'>
                 <a className='hover:bg-gray-700 flex ml-2 p-2 rounded-lg cursor-pointer'>
                     <HomeIcon/>
