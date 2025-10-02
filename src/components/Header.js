@@ -13,7 +13,6 @@ const Header  = () => {
     const [showSearchBar, setShowSearchBar] = useState(false)
     const dispatch = useDispatch()
     const searchSuggestionsData = useSelector(store => store.search) 
-    const onBlurTimer = useRef(null)
     const navigate = useNavigate()
    
     useEffect(()=>{
@@ -27,7 +26,6 @@ const Header  = () => {
 
         return () => {
             clearTimeout(timer)
-            clearTimeout(onBlurTimer)
         }
         
     }, [searchQuery])
@@ -39,7 +37,7 @@ const Header  = () => {
     }
 
     const handleInputOnBlur = () => {
-        onBlurTimer.current = setTimeout(() => {
+        setTimeout(() => {
             setShowSearchBar(false)
         }, 500)
     }
@@ -56,9 +54,10 @@ const Header  = () => {
                 <MenuAndLogo/>
                 <div className='flex items-center'>
                     <input id="search" 
+                        placeholder='Search here'
                         onFocus={() => setShowSearchBar(true)}
                         onBlur={() => handleInputOnBlur()}
-                        onChange={(e) => setSearchQuery(e.target.value)} value={searchQuery}  className="w-42 sm:w-82 sm:h-7 h-5 p-2 border rounded-l-full" type='search'/>          
+                        onChange={(e) => setSearchQuery(e.target.value)} value={searchQuery}  className="w-42 sm:w-82 sm:h-7 h-5 p-2 border rounded-l-full text-xs pl-6" type='search'/>          
                     <button onClick={() => handleSearchButtonClicked(searchQuery)}  className='p-2 opacity-50 cursor-pointer'>
                         <SearchOutlinedIcon />
                     </button>               
