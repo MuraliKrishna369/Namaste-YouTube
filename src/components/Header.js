@@ -5,6 +5,7 @@ import { cacheSearchSuuggestions } from '../utils/searchSlice';
 import { Link, useNavigate } from 'react-router';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import MenuAndLogo from './MenuAndLogo';
+import axios from 'axios';
 
 
 const Header  = () => {
@@ -30,10 +31,9 @@ const Header  = () => {
         
     }, [searchQuery])
     const getSearchSuggestions = async () => {
-        const data = await fetch("http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q="+searchQuery)
-        const json = await data.json()
-        dispatch(cacheSearchSuuggestions({[searchQuery] : json[1]}))
-        setSearchResult(json[1])
+        const data = await axios.post("https://youtube-backend-thha.onrender.com/search", {searchQuery}, {withCredentials: true})
+        dispatch(cacheSearchSuuggestions({[searchQuery] : data.data[1]}))
+        setSearchResult(data.data[1])
     }
 
     const handleInputOnBlur = () => {
