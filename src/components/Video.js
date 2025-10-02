@@ -11,7 +11,7 @@ const Video = ({info}) => {
     const totalViewCount = useViewCount(info?.statistics?.viewCount)
     
     return (
-        <div className="max-w-[340px] sm:max-w-[250px]  text-xs m-2 cursor-pointer border-2 border-blue-300">          
+        <div className="max-w-[340px] sm:max-w-[240px]  text-xs m-2 cursor-pointer">          
             <img className="rounded-lg w-full " alt="video-thumnail" src={thumbnails.medium.url}/>            
             <div className="my-2">
                 <div className="flex items-center my-1">
